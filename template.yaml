@@ -99,6 +99,25 @@ Resources:
           Properties:
             Path: /
             Method: POST
+
+  # This is a Lambda function config associated with the source code: get-by-id.js
+  weeklyPickupPostFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: src/handlers/weekly-post.generateWeeklyPost
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      MemorySize: 128
+      Timeout: 100
+      Description: Return weekly pickup post text
+      Events:
+        Api:
+          Type: Api
+          Properties:
+            Path: /generate-post/weekly
+            Method: GET
+
   # Simple syntax to create a DynamoDB table with a single attribute primary key, more in
   # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
 
