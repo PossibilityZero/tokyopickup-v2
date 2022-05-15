@@ -1,5 +1,20 @@
 # tokyopickup-v2
 
+## Roadmap
+### Short term
+- Generate (bi-)monthly pickup announcement post text
+- Database of upcoming pickup dates
+
+
+### Long term
+- Easy way to input pickup dates
+- Automatic calendar integration
+  - Provide a subscribable calendar link that is automatically updates when new dates are added
+- Automated posting to FB
+- Support for other pickups???
+
+## AWS SAM Default README
+
 This project contains source code and supporting files for a serverless application that you can deploy with the AWS Serverless Application Model (AWS SAM) command line interface (CLI). It includes the following files and folders:
 
 - `src` - Code for the application's Lambda function.
