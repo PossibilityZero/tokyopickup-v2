@@ -20,19 +20,30 @@ Endpoint for creating weekly pickup post text is available, but only returns sta
 
 ### Short term
 - Generate weekly pickup announcement post text
+  - ~~Post generation~~
+  - Relative Day
 - Generate (bi-)monthly pickup announcement post text
+
+### Medium term
+- Test infrastructure
 - Database of upcoming pickup dates
+  - Endpoint to add pickup dates
+  - Generate posts based on DB values
 
 ### Long term
 - Pretty URL (buy domain name?)
-- Easy way to input pickup dates
-  - API/Calendar UI for input
-  - Needs to be access restricted
+- Calendar UI for dates input
+- Access restrict API
 - Automatic calendar integration
   - Provide a subscribable calendar link that is automatically updates when new dates are added
 - Automated posting to FB
 - Automated posting to other services??? (TikTok? 😆)
 - Support for other pickups???
+
+## Project Tenets
+- Hack our way to the short term (providing immediate value)
+- Test and implement good engineering practices
+- From the start, we maintain documentation
 
 ## API
 ### Endpoints
