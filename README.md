@@ -23,14 +23,28 @@ Endpoint for creating weekly pickup post text is available, but only returns sta
 - Generate (bi-)monthly pickup announcement post text
 - Database of upcoming pickup dates
 
-
 ### Long term
+- Pretty URL (buy domain name?)
 - Easy way to input pickup dates
+  - API/Calendar UI for input
+  - Needs to be access restricted
 - Automatic calendar integration
   - Provide a subscribable calendar link that is automatically updates when new dates are added
 - Automated posting to FB
 - Automated posting to other services??? (TikTok? 😆)
 - Support for other pickups???
+
+## API
+### Endpoints
+Base URL
+```
+https://blgomydul1.execute-api.us-east-1.amazonaws.com/Prod
+```
+
+```
+/generate-post/weekly?pickup_date=<ISO 8601 date>
+```
+Generates post with day of week and relative day indication.
 
 ## AWS SAM Default README
 
