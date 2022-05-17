@@ -1,7 +1,25 @@
 # tokyopickup-v2
 
+## History
+
+v1 is here: https://github.com/PossibilityZero/serverless-hiroo
+
+v1 was implemented in Python and only generated the text for the weekly pickup post.
+
+Due to greater familiarity with Javascript and Node, we chose to start from scratch, since there wasn't too much effort lost by restarting.
+
+## Now
+
+Can build and deploy to AWS SAM.
+
+Initial sample endpoints for get index, get ID, and put available.
+
+Endpoint for creating weekly pickup post text is available, but only returns static value.
+
 ## Roadmap
+
 ### Short term
+- Generate weekly pickup announcement post text
 - Generate (bi-)monthly pickup announcement post text
 - Database of upcoming pickup dates
 
@@ -11,6 +29,7 @@
 - Automatic calendar integration
   - Provide a subscribable calendar link that is automatically updates when new dates are added
 - Automated posting to FB
+- Automated posting to other services??? (TikTok? 😆)
 - Support for other pickups???
 
 ## AWS SAM Default README
