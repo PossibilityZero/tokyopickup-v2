@@ -22,7 +22,7 @@ Endpoint for creating weekly pickup post text is available, but only returns sta
 - Generate weekly pickup announcement post text
   - ~~Post generation~~
   - Relative Day
-- Generate (bi-)monthly pickup announcement post text
+- ~~Generate (bi-)monthly pickup announcement post text~~
 
 ### Medium term
 - Test infrastructure
