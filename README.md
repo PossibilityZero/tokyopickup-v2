@@ -17,28 +17,27 @@ Initial sample endpoints for get index, get ID, and put available.
 Endpoint for creating weekly pickup post text is available, but only returns static value.
 
 ## Roadmap
-
 ### Short term
-- Generate weekly pickup announcement post text
-  - ~~Post generation~~
-  - Relative Day
-- ~~Generate (bi-)monthly pickup announcement post text~~
+- [x] Generate weekly pickup announcement post text
+  - [x] Post generation
+  - [ ] ~~Relative Day~~
+- [x] Generate (bi-)monthly pickup announcement post text
 
 ### Medium term
-- Test infrastructure
-- Database of upcoming pickup dates
-  - Endpoint to add pickup dates
-  - Generate posts based on DB values
+- [ ] Test infrastructure
+- [ ] Database of upcoming pickup dates
+  - [ ] Endpoint to add pickup dates
+  - [ ] Generate posts based on DB values
 
 ### Long term
-- Pretty URL (buy domain name?)
-- Calendar UI for dates input
-- Access restrict API
-- Automatic calendar integration
-  - Provide a subscribable calendar link that is automatically updates when new dates are added
-- Automated posting to FB
-- Automated posting to other services??? (TikTok? 😆)
-- Support for other pickups???
+- [ ] Pretty URL (buy domain name?)
+- [ ] Calendar UI for dates input
+- [ ] Access restrict API
+- [ ] Automatic calendar integration
+  - [ ] Provide a subscribable calendar link that is automatically updates when new dates are added
+- [ ] Automated posting to FB
+- [ ] Automated posting to other services??? (TikTok? 😆)
+- [ ] Support for other pickups???
 
 ## Project Tenets
 - Hack our way to the short term (providing immediate value)
@@ -55,7 +54,12 @@ https://blgomydul1.execute-api.us-east-1.amazonaws.com/Prod
 ```
 /generate-post/weekly?pickup_date=<ISO 8601 date>
 ```
-Generates post with day of week and relative day indication.
+Generates post for a specific pickup instance with variable information in English and Japanese
+
+```
+/generate-post/monthly?pickup_dates=<comma-separated ISO 8601 dates>
+```
+Generates post for two month schedule of pickup dates in English and Japanese
 
 ## AWS SAM Default README
 
