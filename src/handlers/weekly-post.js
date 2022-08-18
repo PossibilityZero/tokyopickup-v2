@@ -4,7 +4,7 @@
  * A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
  */
 
-function formatPostText(options) {
+function formatPostText (options) {
   const weeklyPost = [
   `Weeknight Pickup ${options.month}/${options.date} (${options.dayEnglish}) (English follows Japanese)`,
   '',
@@ -37,12 +37,13 @@ exports.generateWeeklyPost = async (event) => {
     dayJapanese: pickupDate.toLocaleString('ja-JP', { weekday: 'short' })
   };
   const postText = formatPostText(options);
+  const responseBody = { postText };
   const response = {
     statusCode: 200,
     body: JSON.stringify(responseBody)
   };
- 
+
   // All log statements are written to CloudWatch
   console.info(`response from: ${event.path} statusCode: ${response.statusCode} body: ${response.body}`);
   return response;
-}
+};

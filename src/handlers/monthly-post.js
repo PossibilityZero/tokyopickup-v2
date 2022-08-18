@@ -4,26 +4,26 @@
  * A simple example includes a HTTP get method to get one item by id from a DynamoDB table.
  */
 
-function getLocalizedMonth(date, language) {
+function getLocalizedMonth (date, language) {
   return date.toLocaleString(language, { month: 'long' });
 }
 
-function getLocalizedDate(date, language) {
+function getLocalizedDate (date, language) {
   // Output example: '6 (Wed)' or '6 (水)'
   return `${date.getDate()} (${date.toLocaleString(language, { weekday: 'short' })})`;
 }
 
-function getLocalizedListOfDatesInMonth(dates, language) {
+function getLocalizedListOfDatesInMonth (dates, language) {
   // TODO: Check if all dates are same month
   const localizedMonth = getLocalizedMonth(dates[0], language);
   const localizedListOfDates = dates
     .map(date => getLocalizedDate(date, language))
     .join(', ');
   // Output example: 'May: 6 (Wed), 13 (Wed), 19 (Tue)'
-  return `${localizedMonth}: ${localizedListOfDates}`
+  return `${localizedMonth}: ${localizedListOfDates}`;
 }
 
-function generateMonthlyPostVariables(pickupDates) {
+function generateMonthlyPostVariables (pickupDates) {
   // pickupDates: Sorted array of Date objects
   // months: array of arrays, each containing the list of Date objects
   // for one month's pickup dates. All elements are sorted
@@ -45,7 +45,7 @@ function generateMonthlyPostVariables(pickupDates) {
   };
 }
 
-function getPickupDatesFromQueryString(queryStringParams) {
+function getPickupDatesFromQueryString (queryStringParams) {
   // return a sorted array of Date objects
   const pickupDatesParam = queryStringParams.pickup_dates;
   const pickupDates = pickupDatesParam.split(',')
@@ -58,37 +58,37 @@ function getPickupDatesFromQueryString(queryStringParams) {
   return pickupDates;
 }
 
-function formatPostText(options) {
+function formatPostText (options) {
   return [
     `(Weeknight pickup ${options.monthNames.en.join('/')} - English follows Japanese)`,
-    ``,
+    '',
     `${options.monthNames.ja.join('・')}の平日夜広尾ピックアップの予定です。`,
     `${options.datesListByMonth.ja[0]}`,
     `${options.datesListByMonth.ja[1]}`,
-    `時間：18:30~20:45`,
-    `場所：広尾中学校 (https://goo.gl/maps/ptmJ2)`,
-    ``,
-    `６時半前には校庭に入らないでください。`,
-    `東門から入ってください。`,
-    `運動着を白黒それぞれ一枚、ディスク一枚を持参してください。`,
-    `スパイク禁止のため、ランシューズまたはトレーニングシューズを用意してください。`,
-    `雨天で中止になる可能性もあります。当日にまた投稿するので確認ください。`,
-    ``,
+    '時間：18:30~20:45',
+    '場所：広尾中学校 (https://goo.gl/maps/ptmJ2)',
+    '',
+    '６時半前には校庭に入らないでください。',
+    '東門から入ってください。',
+    '運動着を白黒それぞれ一枚、ディスク一枚を持参してください。',
+    'スパイク禁止のため、ランシューズまたはトレーニングシューズを用意してください。',
+    '雨天で中止になる可能性もあります。当日にまた投稿するので確認ください。',
+    '',
     `Weeknight Hiroo Pickup dates for ${options.monthNames.en.join('/')} `,
     `${options.datesListByMonth.en[0]}`,
     `${options.datesListByMonth.en[1]}`,
-    `Time: 6:30 PM - 8:45 PM`,
-    `Location: Hiroo Jr High School (https://goo.gl/maps/ptmJ2)`,
-    ``,
-    `Please bring:`,
-    `* A DARK and a WHITE (not light, grey, or ambiguously hued) shirt.`,
-    `* SNEAKERS or TURF SHOES. Cleats are not allowed.`,
-    `* A DISC for warm-ups.`,
-    ``,
-    `Please enter from the east gate on Komazawa Dori, *not* the north gate. Please do not enter the school grounds before 6:30 PM.`,
-    ``,
-    `Pickup is cancelled in case of rain or if the fields are wet. We will post on the day of each pickup, so please check to confirm that the game is on.`,
-  ].join('\n');  
+    'Time: 6:30 PM - 8:45 PM',
+    'Location: Hiroo Jr High School (https://goo.gl/maps/ptmJ2)',
+    '',
+    'Please bring:',
+    '* A DARK and a WHITE (not light, grey, or ambiguously hued) shirt.',
+    '* SNEAKERS or TURF SHOES. Cleats are not allowed.',
+    '* A DISC for warm-ups.',
+    '',
+    'Please enter from the east gate on Komazawa Dori, *not* the north gate. Please do not enter the school grounds before 6:30 PM.',
+    '',
+    'Pickup is cancelled in case of rain or if the fields are wet. We will post on the day of each pickup, so please check to confirm that the game is on.'
+  ].join('\n');
 }
 
 exports.generateMonthlyPost = async (event) => {
@@ -110,8 +110,8 @@ exports.generateMonthlyPost = async (event) => {
     statusCode: 200,
     body: JSON.stringify(responseBody)
   };
- 
+
   // All log statements are written to CloudWatch
   console.info(`response from: ${event.path} statusCode: ${response.statusCode} body: ${response.body}`);
   return response;
-}
+};
