@@ -38,6 +38,9 @@ Endpoint for creating weekly pickup post text is available, but only returns sta
 
 ### Medium term
 - [ ] Test infrastructure
+  - [x] Unit tests
+  - [ ] Integration tests
+- [ ] Automatic deployment to AWS
 - [ ] Database of upcoming pickup dates
   - [ ] Endpoint to add pickup dates
   - [ ] Generate posts based on DB values
