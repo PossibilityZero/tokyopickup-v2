@@ -1,5 +1,18 @@
 # tokyopickup-v2
 
+## Development setup
+
+Development environment setup
+```
+npm install
+```
+
+Run the following command to set up shared git hooks configuration
+```
+git config core.hooksPath .githooks
+```
+
+
 ## History
 
 v1 is here: https://github.com/PossibilityZero/serverless-hiroo
