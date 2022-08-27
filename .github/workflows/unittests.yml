@@ -1,8 +1,6 @@
 name: Unit Tests
 
 on:
-  push:
-    branches: [ "main", "infra/github-actions" ]
   pull_request:
     branches: [ "main" ]
 
