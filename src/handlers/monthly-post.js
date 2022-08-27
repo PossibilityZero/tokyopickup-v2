@@ -29,8 +29,8 @@ function generateMonthlyPostVariables (pickupDates) {
   // for one month's pickup dates. All elements are sorted
   const firstMonth = pickupDates[0].getMonth();
   const months = [
-    pickupDates.filter(date => date.getMonth() == firstMonth),
-    pickupDates.filter(date => date.getMonth() == (firstMonth + 1) % 12) // % in case of Dec-Jan
+    pickupDates.filter(date => date.getMonth() === firstMonth),
+    pickupDates.filter(date => date.getMonth() === (firstMonth + 1) % 12) // % in case of Dec-Jan
   ];
 
   return {
