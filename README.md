@@ -55,6 +55,12 @@ Endpoint for creating weekly pickup post text is available, but only returns sta
 - [ ] Automated posting to other services??? (TikTok? 😆)
 - [ ] Support for other pickups???
 
+### To be looked into
+- [ ] Investigate AWS SAM Pipeline
+  - More complex IAM/roles setup used in tutorial: https://www.eliasbrange.dev/posts/aws-sam-template/#setup
+  - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-cli-command-reference-sam-pipeline-bootstrap.html
+- [ ] AWS CDK (instead of CloudFormation)
+
 ## Project Tenets
 - Hack our way to the short term (providing immediate value)
 - Test and implement good engineering practices
