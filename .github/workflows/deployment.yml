@@ -3,6 +3,7 @@ name: AWS SAM Deployment
 on:
   push:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   deploy-prod:
