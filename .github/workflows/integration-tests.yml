@@ -2,13 +2,11 @@ name: Automated API tests using Newman
 
 on:
   workflow_dispatch:
-  
-env:
-  BASE_URL: ${{ secrets.BASE_URL }}
 
 jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - uses: actions/checkout@v3
       - name: Install Node
@@ -20,4 +18,4 @@ jobs:
           npm install -g newman
       - name: Run POSTMAN collection
         run: |
-          newman run __tests__/integration/tokyopickup-v2.postman_collection.json --env-var "base-url=${{ env.BASE_URL }}"
+          newman run __tests__/integration/tokyopickup-v2.postman_collection.json --env-var "base-url=${{ secrets.BASE_URL }}"
