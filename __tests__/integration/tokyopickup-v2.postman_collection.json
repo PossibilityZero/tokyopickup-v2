@@ -1,0 +1,167 @@
+{
+	"info": {
+		"_postman_id": "43f5aba7-256f-4274-934b-7c40dcd5913d",
+		"name": "tokyopickup-v2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1908791"
+	},
+	"item": [
+		{
+			"name": "Generate Weekly Post",
+			"item": [
+				{
+					"name": "Generate Weekly Post - Successful request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Returns 200 status code', function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test('Returns valid day of week', function () {",
+									"    const postText = pm.response.json().postText;",
+									"    pm.expect(postText).to.include('Wed');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/generate-post/weekly?pickup_date=2022-10-26",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"generate-post",
+								"weekly"
+							],
+							"query": [
+								{
+									"key": "pickup_date",
+									"value": "2022-10-26"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Weekly Post - Missing Params",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Returns 400 status code', function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test('Gives descriptive error message', function () {",
+									"    const errorMessage = pm.response.json().errorMessage;",
+									"    pm.expect(errorMessage).to.include('Missing pickup_date parameter');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/generate-post/weekly",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"generate-post",
+								"weekly"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Generate Weekly Post - Bad Date",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Returns 400 status code', function () {",
+									"    pm.response.to.have.status(400);",
+									"});",
+									"",
+									"pm.test('Gives descriptive error message', function () {",
+									"    const errorMessage = pm.response.json().errorMessage;",
+									"    pm.expect(errorMessage).to.include('Invalid date');",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base-url}}/generate-post/weekly?pickup_date=2022-10-26a",
+							"host": [
+								"{{base-url}}"
+							],
+							"path": [
+								"generate-post",
+								"weekly"
+							],
+							"query": [
+								{
+									"key": "pickup_date",
+									"value": "2022-10-26a"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Generate Monthly Post",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base-url}}/generate-post/monthly?pickup_dates=2022-06-03,2022-06-10,2022-07-10",
+					"host": [
+						"{{base-url}}"
+					],
+					"path": [
+						"generate-post",
+						"monthly"
+					],
+					"query": [
+						{
+							"key": "pickup_dates",
+							"value": "2022-06-03,2022-06-10,2022-07-10"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "base-url",
+			"value": ""
+		}
+	]
+}
