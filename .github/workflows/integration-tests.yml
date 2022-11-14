@@ -20,4 +20,4 @@ jobs:
           npm install -g newman
       - name: Run POSTMAN collection
         run: |
-          newman run __tests__/integration/tokyopickup-v2.postman_collection.json --env-var "base-url=$BASE_URL"
+          newman run __tests__/integration/tokyopickup-v2.postman_collection.json --env-var "base-url=${{ env.BASE_URL }}"
