@@ -7,12 +7,13 @@ jobs:
   automated-api-tests:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Install Postman CLI
+      - name: Install Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "18.x"
+      - name: Install newman
         run: |
-          curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
-      - name: Login to Postman CLI
-        run: postman login --with-api-key ${{ secrets.POSTMAN_API_KEY }}
-      - name: Run API tests
+          npm install -g newman
+      - name: Run POSTMAN collection
         run: |
-          postman collection run "1908791-64ef165c-1e79-49e1-b548-0accc0d84ca0"
+          newman run __tests__/integration/tokyopickup-v2.postman_collection.json --env-var "base-url=${{ secrets.BASE_URL }}"
