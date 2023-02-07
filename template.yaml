@@ -137,7 +137,7 @@ Resources:
             Method: GET
 
   # This is a Lambda function config associated with the source code: calendar-input.js
-  monthlyPickupPostFunction:
+  getPickupDatesUiFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: src/handlers/calendar-input.renderCalendarInput
