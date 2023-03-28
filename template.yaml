@@ -172,3 +172,11 @@ Outputs:
   WebEndpoint:
     Description: "API Gateway endpoint URL for Prod stage"
     Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/"
+
+# Allow CORS: https://stackoverflow.com/questions/67065130/how-to-enable-cors-with-aws-sam
+Globals:
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'content-type'"
+      AllowOrigin: "'*'"
